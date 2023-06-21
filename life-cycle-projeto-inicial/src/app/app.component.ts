@@ -24,6 +24,9 @@ export class AppComponent implements OnInit, DoCheck{
 
   editar(item: Item){
     this.itemParaSerEditado = item;
-
+  }
+  deletarItem(id : number){
+    const i = this.listaDeCompra.findIndex((item) => item.id === id)
+    this.listaDeCompra.splice(i,1)
   }
 }
