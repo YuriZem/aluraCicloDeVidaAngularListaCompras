@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, DoCheck{
   constructor(
     private listaDeCompraService: ListaDeCompraService
   ) { }
+
   ngOnInit(): void {
     this.listaDeCompra = this.listaDeCompraService.getListaDeCompra()
   }
@@ -25,8 +26,13 @@ export class AppComponent implements OnInit, DoCheck{
   editar(item: Item){
     this.itemParaSerEditado = item;
   }
+
   deletarItem(id : number){
     const i = this.listaDeCompra.findIndex((item) => item.id === id)
     this.listaDeCompra.splice(i,1)
+  }
+
+  limparLista(){
+    this.listaDeCompra = [];
   }
 }
